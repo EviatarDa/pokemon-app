@@ -1,0 +1,42 @@
+.container {
+    width: 75%;
+    margin: auto;
+}
+
+.full-width-card {
+    border-radius: 8px;
+    /* border: 1px solid #000;  */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+mat-toolbar {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+  
+.table-container {
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    /* margin-bottom: 50px; הוספת מרווח מתחתית העמוד */
+    /* padding-bottom: 10px; תוספת קטנה למרווח פנימי */
+}
+  
+.pokemon-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+}
+  
+.spacer {
+    flex: 1 1 auto;
+}
+  
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+

@@ -1,0 +1,13 @@
+.error-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: red; /* צבע הכותרת */
+  }
+  
+  button {
+    margin-top: 15px;
+  }
+  

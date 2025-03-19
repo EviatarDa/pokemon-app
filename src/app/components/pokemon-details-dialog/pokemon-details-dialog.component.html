@@ -1,0 +1,45 @@
+<h2 mat-dialog-title class="dialog-title">{{ data.name }}'s Details</h2>
+
+<div mat-dialog-content class="dialog-content">
+  <div class="details-container" *ngIf="!isLoading">
+    <div class="info-container">
+      <div class="details">
+        <p><strong>ID:</strong> {{ data.id }}</p>
+        <p><strong>Height:</strong> {{ pokemonDetails?.height }}</p>
+        <p><strong>Weight:</strong> {{ pokemonDetails?.weight }}</p>
+        <p><strong>Types:</strong> {{ pokemonDetails?.types.join(', ') }}</p>
+      </div>
+
+      <div class="stats">
+        <strong class="stats-title">Stats</strong>
+        <ul>
+          <li><strong>HP:</strong> {{ pokemonDetails?.stats.hp }}</li>
+          <li><strong>Attack:</strong> {{ pokemonDetails?.stats.attack }}</li>
+          <li><strong>Defense:</strong> {{ pokemonDetails?.stats.defense }}</li>
+          <li><strong>Sp. Attack:</strong> {{ pokemonDetails?.stats['special-attack'] }}</li>
+          <li><strong>Sp. Defense:</strong> {{ pokemonDetails?.stats['special-defense'] }}</li>
+          <li><strong>Speed:</strong> {{ pokemonDetails?.stats.speed }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <div class="image-wrapper">
+        <img [src]="data.imageUrl" [alt]="data.name" class="pokemon-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- <ng-template #loading>
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template> -->
+  <div class="loading-container" *ngIf="isLoading">
+    <mat-spinner diameter="50"></mat-spinner>
+  </div>
+</div>
+
+<div mat-dialog-actions align="center">
+  <button mat-raised-button color="primary" (click)="close()">Close</button>
+</div>

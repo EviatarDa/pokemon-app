@@ -1,0 +1,9 @@
+.logo {
+    display: block;
+    width: 25vw; /* 25% מרוחב המסך */
+    min-width: 200px; /* מבטיח שהתמונה לא תהיה קטנה מדי */
+    max-width: 350px; /* אפשר גם להגדיל אם צריך */
+    height: auto;
+    margin: 20px auto;
+  }
+  

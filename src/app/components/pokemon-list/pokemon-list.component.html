@@ -1,0 +1,69 @@
+<div class="container">
+    <mat-card class="full-width-card" appearance="outlined">
+        <mat-toolbar color="primary">
+            <span>Pokémon List</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="toggleShowFavorites()">
+              <mat-icon>{{ showOnlyFavorites ? 'favorite' : 'favorite_border' }}</mat-icon>
+            </button>
+        </mat-toolbar>
+        
+          <div class="table-container" #tableContainer>
+            <table mat-table [dataSource]="filteredData" class="mat-elevation-z8">
+              
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let pokemon"> {{ pokemon.id }} </td>
+              </ng-container>
+        
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let pokemon">
+                    <button mat-raised-button color="primary" (click)="editPokemon(pokemon.id, pokemon.name)" >
+                      {{ pokemon.name }}
+                    </button>
+                  </td>
+              </ng-container>
+      
+              <!-- View Details Column -->
+              <ng-container matColumnDef="details">
+                  <th mat-header-cell *matHeaderCellDef> View Details </th>
+                  <td mat-cell *matCellDef="let pokemon">
+                  <button mat-stroked-button color="primary" (click)="viewPokemonDetails(pokemon)">
+                      View Details
+                  </button>
+                  </td>
+              </ng-container>
+        
+              <!-- Image Column -->
+              <ng-container matColumnDef="image">
+                <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let pokemon">
+                  <img [src]="pokemon.imageUrl" alt="{{ pokemon.name }}" class="pokemon-img">
+                </td>
+              </ng-container>
+        
+              <!-- Favorite Column -->
+              <ng-container matColumnDef="favorite">
+                <th mat-header-cell *matHeaderCellDef> Favorite </th>
+                <td mat-cell *matCellDef="let pokemon">
+                  <button mat-icon-button (click)="toggleFavorite(pokemon.id)">
+                    <mat-icon>{{ favoritesSet.has(pokemon.id) ? 'favorite' : 'favorite_border' }}</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+        
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          </div>
+    </mat-card>
+  
+    <!-- Spinner שמופיע בזמן טעינה -->
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-spinner diameter="50"></mat-spinner>
+    </div>
+    <!-- <br> -->
+</div>

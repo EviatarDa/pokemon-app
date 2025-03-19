@@ -1,0 +1,27 @@
+.dialog-title {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .dialog-content {
+    padding: 10px 0;
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .input-field {
+    width: 250px; /* מגדיר רוחב קבוע */
+    max-width: 100%;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* מרחק בין הכפתורים */
+    padding-top: 10px;
+  }
+  
+  
