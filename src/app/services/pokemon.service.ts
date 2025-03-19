@@ -21,7 +21,6 @@ export class PokemonService {
     return this.http.get<any>(`${this.apiUrl}/${identifier}`).pipe(
       catchError(this.handleError)
     );
-    
   }
 
   addFavoritePokemon(pokemonId: number): Observable<any> {
